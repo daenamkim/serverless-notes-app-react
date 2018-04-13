@@ -6,9 +6,9 @@ export default {
   },
   apiGateway: {
     REGION: "us-east-1",
-    URL: "https://xalngxox5e.execute-api.us-east-1.amazonaws.com/prod"
+    URL: "https://6n5vigj2k0.execute-api.us-east-1.amazonaws.com/prod"
   },
-  congnito: {
+  cognito: {
     REGION: "us-east-1",
     USER_POOL_ID: "us-east-1_6S1G4MTRL",
     APP_CLIENT_ID: "4548c0tvempdaebd5pls26iraq",

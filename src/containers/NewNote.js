@@ -3,6 +3,8 @@ import { FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 import LoaderButton from '../components/LoaderButton';
 import config from '../config';
 import './NewNote.css';
+import { s3Upload } from '../libs/awsLib';
+import { API } from 'aws-amplify';
 
 export default class NewNote extends Component {
   constructor(props) {
@@ -32,14 +34,34 @@ export default class NewNote extends Component {
   handleSubmit = async event => {
     event.preventDefault();
 
-    console.log(this.file.size);
-    console.log(config.MAX_ATTACHMENT_SIZE);
     if (this.file && this.file.size > config.MAX_ATTACHMENT_SIZE) {
       alert('Please pick a file smaller than ' + config.MAX_ATTACHMENT_SIZE / 1000000 + 'MB');
       return;
     }
 
     this.setState({isLoading: true});
+
+    try {
+      const attachment = this.file
+        ? await s3Upload(this.file)
+        : null;
+
+      await this.createNote({
+        attachment,
+        content: this.state.content
+      });
+
+      this.props.history.push('/');
+    } catch (e) {
+      alert(e);
+      this.setState({isLoading: false});
+    }
+  }
+
+  createNote(note) {
+    return API.post('notes', '/notes', {
+      body:note
+    })
   }
 
   render() {
