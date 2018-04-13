@@ -88,7 +88,6 @@ export default class Notes extends Component {
     try {
       if (this.file) {
         attachment = await s3Upload(this.file);
-        console.log(attachment);
       }
 
       await this.saveNote({

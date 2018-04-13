@@ -17,4 +17,4 @@ export default ({
   >
     {isLoading && <Glyphicon glyph="refresh" className="spinning" />}
     {!isLoading ? text: loadingText }
-  </Button>
+  </Button>;

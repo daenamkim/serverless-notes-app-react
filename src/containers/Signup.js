@@ -31,7 +31,6 @@ export default class Signup extends Component {
   }
 
   handleChange = event => {
-    console.log([event.target.id]);
     this.setState({
       [event.target.id]: event.target.value
     });
@@ -106,21 +105,21 @@ export default class Signup extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <FormGroup controlId="email" bsSzie="large">
-            <ControlLabel>Email</ControlLabel>
-            <FormControl
+          <ControlLabel>Email</ControlLabel>
+          <FormControl
             autoFocus
             type="email"
             value={this.state.email}
             onChange={this.handleChange}
-            />
+          />
         </FormGroup>
         <FormGroup controlId="password" bsSize="large">
-            <ControlLabel>Password</ControlLabel>
-            <FormControl
+          <ControlLabel>Password</ControlLabel>
+          <FormControl
             value={this.state.password}
             onChange={this.handleChange}
             type="password"
-            />
+          />
         </FormGroup>
         <FormGroup controlId="confirmPassword" bsSize="large">
           <ControlLabel>Confirm Password</ControlLabel>

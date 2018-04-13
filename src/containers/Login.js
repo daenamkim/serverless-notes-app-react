@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import React, { Component } from 'react';
+import { FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 import LoaderButton from '../components/LoaderButton';
-import "./Login.css";
-import { Auth } from "aws-amplify";
+import './Login.css';
+import { Auth } from 'aws-amplify';
 
 export default class Login extends Component {
   constructor(props) {
@@ -10,8 +10,8 @@ export default class Login extends Component {
 
     this.state = {
       isLoading: false,
-      email: "",
-      password: ""
+      email: '',
+      password: ''
     };
   }
 
@@ -20,7 +20,6 @@ export default class Login extends Component {
   }
 
   handleChange = event => {
-    console.log(event.target.value);
     this.setState({
       [event.target.id]: event.target.value
     });

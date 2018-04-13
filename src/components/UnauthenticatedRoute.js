@@ -15,7 +15,7 @@ function querystring(name, url = window.location.href) {
     return '';
   }
 
-  return decodeURIComponent(results[2].replace(/\+/g, ' '))
+  return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
 export default ({ component: C, props: cProps, ...rest }) => {
