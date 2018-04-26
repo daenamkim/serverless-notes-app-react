@@ -1,10 +1,12 @@
 import React, { Component, Fragment } from 'react';
-import { Link, withRouter } from "react-router-dom";
-import { Nav, Navbar, NavItem } from "react-bootstrap";
-import Routes from "./Routes"
-import { LinkContainer } from "react-router-bootstrap";
-import "./App.css";
+import { Link, withRouter } from 'react-router-dom';
+import { Nav, Navbar, NavItem } from 'react-bootstrap';
+import Routes from './Routes';
+import { LinkContainer } from 'react-router-bootstrap';
+import './App.css';
 import { Auth } from 'aws-amplify';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import MyComponent from './components/MyComponent';
 
 class App extends Component {
   constructor(props) {
@@ -49,6 +51,9 @@ class App extends Component {
     return (
       !this.state.isAuthenticating &&
       <div className="App container">
+        <MuiThemeProvider>
+          <MyComponent />
+        </MuiThemeProvider>
         <Navbar fluid collapseOnSelect>
           <Navbar.Header>
             <Navbar.Brand>
@@ -66,7 +71,7 @@ class App extends Component {
                   </LinkContainer>
                   <LinkContainer to="/login">
                     <NavItem>Login</NavItem>
-                  </LinkContainer>  
+                  </LinkContainer>
                 </Fragment>
               }
             </Nav>
