@@ -65,8 +65,8 @@ export default class Home extends Component {
   renderLander() {
     return (
       <div className="lander">
-        <h1>Scratch</h1>
-        <p>A simple note taking app</p>
+        <h1>OONOTO</h1>
+        <p>A Simple Note</p>
         <div>
           <Link to="/login" className="btn btn-info btn-lg">
             Login
@@ -82,7 +82,7 @@ export default class Home extends Component {
   renderNotes() {
     return (
       <div className="notes">
-        <PageHeader>Your Notes</PageHeader>
+        <PageHeader>My Notes</PageHeader>
         <ListGroup>
           {!this.state.isLoading && this.renderNotesList(this.state.notes)}
         </ListGroup>
